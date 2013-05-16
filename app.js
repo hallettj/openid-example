@@ -53,6 +53,11 @@ app.get('/auth/openid/return', passport.authenticate('openid', {
     failureRedirect: '/login.html'
 }));
 
+app.get('/logout', function(req, res) {
+    req.logout();
+    res.redirect('/');
+});
+
 
 // My application endpoints
 
