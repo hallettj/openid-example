@@ -2,9 +2,10 @@
     "name": "openid-example",
     "description": "Demonstrates using Passport for OpenID authentication in an Express app",
     "version": "0.0.1",
-    "main": "app",
     "dependencies": {
         "express": "3.x",
-        "passport-openid": "0.3.x"
+        "passport": "0.1.x",
+        "passport-openid": "0.3.x",
+        "lodash": "1.2.x"
     }
 }
