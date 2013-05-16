@@ -65,11 +65,14 @@ app.get('/', function(req, res) {
 
 app.get('/whoami', function(req, res) {
     var user = req.user
-      , tmpl = '<h1><%= openid %></h1><p>member since <%= since %></p>'
-      , body = _.template(tmpl, user);
-    res.setHeader('Content-Type', 'text/html');
-    res.setHeader('Content-Length', body.length);
-    res.end(body);
+      , tmpl = '<h1><%= openid %></h1><p>member since <%= since %></p>';
+    if (user) {
+        res.setHeader('Content-Type', 'text/html');
+        res.end(_.template(tmpl, user));
+    }
+    else {
+        res.redirect('/login.html');
+    }
 });
 
 app.listen(port);
